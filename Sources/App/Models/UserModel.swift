@@ -110,6 +110,48 @@ final class UserModel: Model {
     init(role: RoleEnum.RawValue) {
         self.role = role
     }
+    
+    final class Public: Content {
+        var id: UUID?
+        var username: String?
+        var email: String?
+        var name: String?
+        var lastname: String?
+        var updatedAt: Date?
+        var city: String?
+        var subscriptionAtiveTill: Date?
+        var myCourses: [UUID]?
+        var completedCount: [UUID]?
+        var bio: String?
+        
+        init(id: UUID? = nil, username: String?, email: String?, name: String?, lastname: String?, updatedAt: Date?, city: String?, subscriptionAtiveTill: Date?, myCourses: [UUID]?, completedCount: [UUID]?, bio: String?) {
+            self.id = id
+            self.username = username
+            self.email = email
+            self.name = name
+            self.lastname = lastname
+            self.updatedAt = updatedAt
+            self.city = city
+            self.subscriptionAtiveTill = subscriptionAtiveTill
+            self.myCourses = myCourses
+            self.completedCount = completedCount
+            self.bio = bio
+        }
+    }
 }
 
 extension UserModel: Content {}
+
+extension UserModel {
+    func convertToPublic() -> UserModel.Public {
+        return UserModel.Public(username: username, email: email, name: name, lastname: lastname, updatedAt: updatedAt, city: city, subscriptionAtiveTill: subscriptionAtiveTill, myCourses: myCourses, completedCount: completedCourses, bio: bio)
+    }
+}
+
+extension Collection where Element: UserModel {
+    func convertToPublic() -> [UserModel.Public] {
+        return self.map {
+            $0.convertToPublic()
+        }
+    }
+}
