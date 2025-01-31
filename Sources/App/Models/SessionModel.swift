@@ -50,14 +50,13 @@ final class SessionModel: Model {
 
     init() {}
     
-    init(title: String?, mp4URL: URL?, h1sURL: URL?, createdAt: Date?, updatedAt: Date?, publishDate: Date?, status: StatusEnum.RawValue?, price: PriceEnum.RawValue?, article: String?, course: CourseModel.IDValue, slug: String?) {
+    init(title: String?, mp4URL: URL?, h1sURL: URL?, createdAt: Date?, updatedAt: Date?, publishDate: Date?, price: PriceEnum.RawValue?, article: String?, course: CourseModel.IDValue, slug: String?) {
         self.title = title
         self.mp4Url = mp4URL
         self.h1sURL = h1sURL
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.publishDate = publishDate
-        self.status = status
         self.price = price
         self.article = article
         self.course = course
