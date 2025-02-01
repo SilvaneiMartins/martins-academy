@@ -17,10 +17,13 @@ public func configure(_ app: Application) async throws {
     
     // MARK: Configuração da Migração
     app.migrations.add(UserModelMigration())
+    app.migrations.add(TokenModelMigration())
     app.migrations.add(CourseModelMigration())
     app.migrations.add(SessionModelMigratino())
     app.migrations.add(GuideModelMigration())
     app.migrations.add(ArticleModelMigration())
+    
+    try app.autoMigrate().wait()
 
     try routes(app)
 }
