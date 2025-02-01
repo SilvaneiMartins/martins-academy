@@ -86,8 +86,6 @@ struct SessionService: ContentProtocol {
 }
 
 extension SessionService: TransformProtocol {
-    typealias answerWithID = UUID
-    
     static func getIDFromSlug(_ req: Request, slug: String) async throws -> UUID {
         guard let session = try await SessionModel.query(on: req.db)
             .filter(\.$slug == slug)
@@ -97,4 +95,6 @@ extension SessionService: TransformProtocol {
         
         return session.id!
     }
+    
+    typealias answerWithID = UUID
 }

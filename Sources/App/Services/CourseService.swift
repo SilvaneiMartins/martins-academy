@@ -100,8 +100,6 @@ struct CourseServices: ContentProtocol {
 
 
 extension CourseServices: TransformProtocol {
-    typealias answerWithID = UUID
-    
     static func getIDFromSlug(_ req: Vapor.Request, slug: String) async throws -> UUID {
         guard let course = try await CourseModel.query(on: req.db)
             .filter(\.$slug == slug)
@@ -111,4 +109,6 @@ extension CourseServices: TransformProtocol {
         
         return course.id!
     }
+    
+    typealias answerWithID = UUID
 }

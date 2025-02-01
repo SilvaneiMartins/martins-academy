@@ -51,8 +51,8 @@ final class ArticleModel: Model {
     @Timestamp(key: FieldKeys.updatedAt, on: .update)
     var updatedAt: Date?
     
-    @OptionalField(key: FieldKeys.publishAt)
-    var publishAt: Date?
+    @OptionalField(key: FieldKeys.publishDate)
+    var publishDate: Date?
     
     @OptionalField(key: FieldKeys.tags)
     var tags: [String]?
@@ -72,7 +72,7 @@ final class ArticleModel: Model {
         self.role = role
         self.createdAt = createdAt
         self.updatedAt = updatedAt
-        self.publishAt = publishDate
+        self.publishDate = publishDate
         self.tags = tags
     }
     

@@ -23,7 +23,7 @@ extension ArticleModel {
         static var role: FieldKey {"role"}
         static var createdAt: FieldKey {"createdAt"}
         static var updatedAt: FieldKey {"updatedAt"}
-        static var publishAt: FieldKey {"publishAt"}
+        static var publishDate: FieldKey {"publishDate"}
         static var tags: FieldKey {"tags"}
     }	
 }

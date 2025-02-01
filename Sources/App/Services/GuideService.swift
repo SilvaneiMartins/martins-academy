@@ -93,6 +93,4 @@ extension GuideService: TransformProtocol {
     }
     
     typealias answerWithID = UUID
-    
-    
 }

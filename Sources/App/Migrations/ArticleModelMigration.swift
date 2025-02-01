@@ -28,7 +28,7 @@ struct ArticleModelMigration: AsyncMigration {
             .field(keys.role, .string)
             .field(keys.createdAt, .datetime)
             .field(keys.updatedAt, .datetime)
-            .field(keys.publishAt, .datetime)
+            .field(keys.publishDate, .datetime)
             .field(keys.tags, .array(of: .string))
             .create()
     }
